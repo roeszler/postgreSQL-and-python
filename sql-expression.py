@@ -31,7 +31,9 @@ album_table = Table(
     Column("TrackId", Integer, primary_key=True),
     Column("Name", String),
     Column("AlbumId", Integer, ForeignKey("album_table.AlbumId")),
-    # MediaTypeId and GenreId, Integers, are technically foreign keys, but we aren't defining all tables in this case, so we can simply set primary_key to False.
+    # MediaTypeId and GenreId, Integers, are technically foreign keys, but
+    # we aren't defining all tables in this case, so we can simply set the
+    # primary_key to False.
     Column("MediaTypeId", Integer, primary_key=False),
     Column("GenreId", Integer, primary_key=False),
     Column("Composer", String),
