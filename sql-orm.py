@@ -31,13 +31,13 @@ base = declarative_base()
 
 # create a class-based model for the "Artist" table
 class Artist(base):
-    __tabename__ = "Artist"  # creates the table
+    __tablename__ = "Artist"  # creates the table
     ArtistId = Column(Integer, primary_key=True) # identifies Primary Key
     Name = Column(String) # indicates sub-columns
 
 # create a class-based model for the "Album" table
 class Album(base):
-    __tabename__ = "Album"
+    __tablename__ = "Album"
     AlbumId = Column(Integer, primary_key=True)
     Title = Column(String)
     ArtistId = Column(Integer, ForeignKey("Artist.ArtistId")) # points to the ArtistId in the Artist CBM
@@ -73,3 +73,27 @@ session = Session()
 
 # creating the database using declarative_base subclass and generate all metadata:
 base.metadata.create_all(db)
+
+
+# ------------ Queries to the database sessions
+
+# Query 1 - select all records from the "Artist" table
+
+artists = session.query(Artist) # session.query to query the Artist class above
+for artist in artists:  # to iterate over the results found
+    print(artist.ArtistId, artist.Name, sep=" | ") # print each separated columns using dot-notation and "|" on our for-loop
+
+
+# Query 2 - select only the "Name" column from the "Artist" table
+
+
+# Query 3 - select only "Queen" from the "Artist" table
+
+
+# Query 4 - select only by "ArtistId" #51 from the "Artist" table
+
+
+# Query 5 - select only the albums with "ArtistId" #51 on the "Album" table
+
+
+# Query 6 - select all tracks where the composer is "Queen" from the "Track" table
