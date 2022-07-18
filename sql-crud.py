@@ -18,7 +18,7 @@ base = declarative_base()
 # ------------ New create a class-based model for the "Programmer" table
 class Programmer(base):
     __tablename__ = "Programmer",
-    id = Column(Integer, primary_key=True) # as this is the PK, it will auto increment
+    id = Column(Integer, primary_key=True) # as this is a PK, it will auto increment
     first_name = Column(String)
     last_name = Column(String)
     gender = Column(String)
@@ -42,7 +42,7 @@ ada_lovelace = Programmer(
 )
 
 # ------------ Add each instance of out record 'Programmers' to the session
-session.add(ada_lovelace)
+# session.add(ada_lovelace)
 
 # ------------ Commit session to the database
 session.commit()
@@ -52,11 +52,11 @@ session.commit()
 
 # ------------ Query the database to find all Programmers
 programmers = session.query(Programmer)
-for programmer in Programmers:
+for programmer in programmers:
     print(
         programmer.id,
         programmer.first_name + " " + programmer.last_name,
-        programmer.gender, 
+        programmer.gender,
         programmer.nationality,
         programmer.famous_for,
         sep=" | "
