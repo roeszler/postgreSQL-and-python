@@ -17,7 +17,7 @@ base = declarative_base()
 
 # ------------ New create a class-based model for the "Programmer" table
 class Programmer(base):
-    __tablename__ = "Programmer",
+    __tablename__ = "Programmer"
     id = Column(Integer, primary_key=True) # as this is a PK, it will auto increment
     first_name = Column(String)
     last_name = Column(String)
